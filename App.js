@@ -6,6 +6,7 @@ import Auth from "./Components/Pages/Auth/Auth";
 import UserContext from "./Contexts/UserContext";
 import ProfilStack from "./Components/Stacks/ProfilStack";
 import { NavigationContainer } from "@react-navigation/native";
+import GlobalDrawer from "./Components/Drawers/GlobalDrawer";
 
 export default function App() {
   const fakeUser = { email: "test@example.com", username: "test" };
@@ -15,7 +16,7 @@ export default function App() {
     <UserContext.Provider value={{ user: user, setUser: setUser }}>
       <NavigationContainer>
         <View style={styles.container}>
-          {user ? <ProfilStack /> : <Auth />}
+          {user ? <GlobalDrawer /> : <Auth />}
 
           <StatusBar style="auto" />
         </View>

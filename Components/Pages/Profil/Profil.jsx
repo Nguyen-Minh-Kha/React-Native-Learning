@@ -16,7 +16,6 @@ import Button from "../UI/Button/Button.jsx";
 
 const Profil = ({ route, navigation }) => {
   const { user, setUser } = useContext(UserContext);
-  console.log(user);
   const size = useWindowDimensions();
 
   const pickImage = async () => {
@@ -34,7 +33,6 @@ const Profil = ({ route, navigation }) => {
 
   const goEdit = () => {
     navigation.push("editProfil");
-    console.log("toto");
   };
   return (
     <>

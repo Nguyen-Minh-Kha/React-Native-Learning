@@ -3,17 +3,17 @@ import InputWithError from "../UI/InputWithError/InputWithError";
 import UserContext from "../../../Contexts/UserContext.js";
 import { useState, useContext } from "react";
 import Button from "../UI/Button/Button";
+import Card from "../../HOC/Card/Card";
 
 const EditInfo = ({ route, navigation }) => {
-  const [emailInput, setEmailInput] = useState("");
+  const { user, setUser } = useContext(UserContext);
+  const [emailInput, setEmailInput] = useState(user.email);
   const [emailError, setEmailError] = useState("");
 
-  const [usernameInput, setUsernameInput] = useState("");
+  const [usernameInput, setUsernameInput] = useState(user.username);
   const [usernameError, setUsernameError] = useState("");
 
-  const { user, setUser } = useContext(UserContext);
-
-  const [descInput, setDescInput] = useState("");
+  const [descInput, setDescInput] = useState(user.description);
 
   const handleEmail = (text) => {
     setEmailInput(text);
@@ -35,7 +35,6 @@ const EditInfo = ({ route, navigation }) => {
       usernameInput.length >= 3 &&
       usernameInput.length <= 12
     ) {
-      /* console.log(emailInput + ", connexion reussi"); */
       setUser({
         ...user,
         email: emailInput,
@@ -54,9 +53,8 @@ const EditInfo = ({ route, navigation }) => {
   };
 
   return (
-    <View>
-      <Text>Modifier</Text>
-      <Text>vos informations</Text>
+    <View style={styles.container}>
+      <Card title={"Modifier"} content={"vos informations"} />
       <InputWithError
         holder={user.email}
         valeur={emailInput}
@@ -87,6 +85,7 @@ const EditInfo = ({ route, navigation }) => {
 export default EditInfo;
 
 const styles = StyleSheet.create({
+  container: {},
   text: {
     color: "white",
   },

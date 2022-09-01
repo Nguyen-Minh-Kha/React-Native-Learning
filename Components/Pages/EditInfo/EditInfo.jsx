@@ -37,6 +37,7 @@ const EditInfo = ({ route, navigation }) => {
     ) {
       /* console.log(emailInput + ", connexion reussi"); */
       setUser({
+        ...user,
         email: emailInput,
         username: usernameInput,
         description: descInput,

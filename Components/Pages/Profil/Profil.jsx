@@ -12,6 +12,7 @@ import defaultAvatar from "../../../assets/default_avatar.png";
 import ShowInfo from "../UI/ShowInfo/ShowInfo.jsx";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import Button from "../UI/Button/Button.jsx";
 
 const Profil = ({ route, navigation }) => {
   const { user, setUser } = useContext(UserContext);
@@ -29,6 +30,11 @@ const Profil = ({ route, navigation }) => {
 
   const goCamera = () => {
     navigation.push("camera");
+  };
+
+  const goEdit = () => {
+    navigation.push("editProfil");
+    console.log("toto");
   };
   return (
     <>
@@ -77,6 +83,9 @@ const Profil = ({ route, navigation }) => {
               : "Veuillez entrer une description"
           }
         />
+        <Button action={goEdit}>
+          <Text style={styles.text}>Modifier vos informations.</Text>
+        </Button>
       </View>
     </>
   );
@@ -107,6 +116,9 @@ const styles = StyleSheet.create({
   },
   avatarContainer: {},
   avatar: { alignSelf: "center" },
+  text: {
+    color: "white",
+  },
 });
 
 export default Profil;

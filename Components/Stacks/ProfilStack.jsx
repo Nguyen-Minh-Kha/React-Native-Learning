@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet } from "react-native";
 import Profil from "../Pages/Profil/Profil";
 import Cam from "../Pages/Cam/Cam";
+import EditInfo from "../Pages/EditInfo/EditInfo";
 const Stack = createStackNavigator();
 
 const ProfilStack = () => {
@@ -21,6 +22,12 @@ const ProfilStack = () => {
         name="camera"
         component={Cam}
         options={{ title: "Prenez une photo" }}
+      />
+
+      <Stack.Screen
+        name="editProfil"
+        component={EditInfo}
+        options={{ title: "Modifier vos informations" }}
       />
     </Stack.Navigator>
   );

@@ -1,5 +1,5 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import GOT from "../Pages/GOT/GOT.JSX";
+import GOT from "../Pages/GOT/GOT";
 import Map from "../Pages/Map/Map";
 import ProfilStack from "../Stacks/ProfilStack";
 import Navbar from "./../Container/NavBar/NavBar";
@@ -9,9 +9,16 @@ export default function GlobalDrawer() {
   return (
     <Drawer.Navigator
       screenOptions={{
-        header: Navbar,
+        header: (props) => {
+          return <Navbar {...props} />;
+        },
       }}
     >
+      <Drawer.Screen
+        name="got"
+        component={GOT}
+        options={{ title: "Personnages de GOT" }}
+      />
       <Drawer.Screen
         name="profilstack"
         component={ProfilStack}
@@ -25,11 +32,6 @@ export default function GlobalDrawer() {
         options={{
           title: "Carte",
         }}
-      />
-      <Drawer.Screen
-        name="got"
-        component={GOT}
-        options={{ title: "Personnages de GOT" }}
       />
     </Drawer.Navigator>
   );

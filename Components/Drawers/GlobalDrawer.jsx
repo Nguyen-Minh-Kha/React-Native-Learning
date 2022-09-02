@@ -15,7 +15,6 @@ export default function GlobalDrawer() {
         },
       }}
     >
-      <Drawer.Screen name="news" component={News} options={{ title: "News" }} />
       <Drawer.Screen
         name="profilstack"
         component={ProfilStack}
@@ -35,6 +34,7 @@ export default function GlobalDrawer() {
         component={GOT}
         options={{ title: "Personnages de GOT" }}
       />
+      <Drawer.Screen name="news" component={News} options={{ title: "News" }} />
     </Drawer.Navigator>
   );
 }

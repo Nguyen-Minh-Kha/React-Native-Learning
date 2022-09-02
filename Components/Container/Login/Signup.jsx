@@ -11,6 +11,8 @@ import P from "../../Pages/UI/P/P";
 import InputWithError from "../../Pages/UI/InputWithError/InputWithError.js";
 import UserContext from "../../../Contexts/UserContext.js";
 
+import createUser from "../../../libs/requests/auth";
+
 import { AntDesign } from "@expo/vector-icons";
 
 const Signup = () => {
@@ -48,7 +50,7 @@ const Signup = () => {
     setPasswordReError("");
   };
 
-  const signup = () => {
+  const signup = async () => {
     if (
       emailInput.includes("@") &&
       passwordInput.length >= 6 &&
@@ -56,8 +58,9 @@ const Signup = () => {
       usernameInput.length >= 3 &&
       usernameInput.length <= 12
     ) {
-      /* console.log(emailInput + ", connexion reussi"); */
-      setUser({ email: emailInput, username: usernameInput });
+      await createUser(emailInput, usernameInput, passwordInput);
+
+      /* setUser({ email: emailInput, username: usernameInput }); */
     } else {
       setEmailError(!emailInput.includes("@") ? "email invalide!" : "");
       setUsernameError(

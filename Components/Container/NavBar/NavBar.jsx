@@ -8,10 +8,13 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import { useContext } from "react";
 import UserContext from "../../../Contexts/UserContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../libs/requests/firebase";
 const Navbar = ({ navigation, options }) => {
   const { user, setUser } = useContext(UserContext);
 
-  function logout() {
+  async function logout() {
+    await signOut(auth);
     setUser(null);
   }
 

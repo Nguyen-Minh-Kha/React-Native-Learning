@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native-web";
+import { TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 const Button = ({ action, children }) => {
   return (

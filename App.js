@@ -1,10 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Profil from "./Components/Pages/Profil/Profil";
 import Auth from "./Components/Pages/Auth/Auth";
 import UserContext from "./Contexts/UserContext";
-import ProfilStack from "./Components/Stacks/ProfilStack";
 import { NavigationContainer } from "@react-navigation/native";
 import GlobalDrawer from "./Components/Drawers/GlobalDrawer";
 
